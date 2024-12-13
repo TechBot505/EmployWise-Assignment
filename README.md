@@ -1,70 +1,154 @@
-# Getting Started with Create React App
+# EmployWise Frontend Assignment - User Management Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Introduction
 
-## Available Scripts
+This project is a user management application built using React.js, Tailwind CSS, and the Reqres API. The application provides essential user management functionalities, including authentication, user listing, editing, deleting, and filtering. It also features responsive design and is deployed on Netlify for seamless accessibility.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Folder Structure
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+```
+frontend-assignment/
+├── public/
+│   └── index.html       # Main HTML file
+├── src/
+│   ├── components/      # Reusable UI components
+│   │   ├── EditUserModal.js
+│   │   ├── PaginationControls.js
+│   │   ├── SearchBar.js
+│   │   └── UserCard.js
+│   ├── contexts/        # Context API for global state management
+│   │   └── UserContext.js
+│   ├── pages/           # Application pages
+│   │   ├── Login.js
+│   │   └── UserList.js
+│   ├── App.js           # Main application file
+│   ├── index.js         # Application entry point
+│   └── styles/          # Custom styles if any
+├── package.json         # Project dependencies
+├── tailwind.config.js   # Tailwind CSS configuration
+└── README.md            # Project documentation
+```
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Key Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### 1. **Authentication**
 
-### `npm run build`
+- Can you 
+- Stores the authentication token in localStorage for persistence.
+- Redirects users to the login page if the token is missing or expired.
+- Validates user input with error feedback using `react-toastify`.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 2. **User Management**
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### User List
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Fetches and displays a paginated list of users using `GET /api/users?page=1`.
+- Users are displayed with their first name, last name, and avatar in a card-based layout.
+- Implements client-side pagination to navigate through user data.
 
-### `npm run eject`
+#### Edit User
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- Allows updating user details (first name, last name, email) via a pre-filled edit modal.
+- Updates data on the server using the `PUT /api/users/{id}` endpoint.
+- Uses context API to update the global state after a successful edit.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Delete User
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- Deletes a user from the list using the `DELETE /api/users/{id}` endpoint.
+- Removes the user from the global state after a successful deletion.
+- Displays success or error notifications using `react-toastify`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3. **Search and Filter**
 
-## Learn More
+- Implements client-side search functionality.
+- Filters the user list dynamically based on first name or last name input.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### 4. **Pagination**
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Provides pagination controls for navigating through pages.
+- Dynamically fetches user data for the current page.
 
-### Code Splitting
+### 5. **Global Context Management**
+- Used Context API for managing users context gobally.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 6. **Responsive Design**
 
-### Analyzing the Bundle Size
+- Built with Tailwind CSS for responsive and user-friendly design.
+- Optimized for both desktop and mobile devices.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 7. **Error Handling**
 
-### Making a Progressive Web App
+- Displays appropriate error messages for API failures using `react-toastify`.
+- Redirects to the login page on session expiration.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 8. **React Router**
 
-### Advanced Configuration
+- Imlementd age navigation and routing using React Router.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+### 9. **Deployment**
 
-### Deployment
+- Hosted on Netlify for public access.
+- URL: [Deployed Application](https://employ-wise-505.netlify.app/)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+## Tech Stack
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Frontend**: React.js, Tailwind CSS
+- **State Management**: Context API
+- **HTTP Client**: Axios
+- **Routing**: React Router
+- **Notifications**: React Toastify
+- **Deployment**: Netlify
+
+---
+
+## Local Setup Instructions
+
+### Prerequisites
+
+- Node.js and npm installed on your system.
+
+### Steps
+
+1. Clone the repository:
+
+   ```bash
+   git clone <repository-url>
+   cd frontend-assignment
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+
+   ```bash
+   npm start
+   ```
+
+4. Access the application at:
+
+   ```
+   http://localhost:3000
+   ```
+
+---
+
+## API Reference
+
+- **Base URL**: `https://reqres.in/`
+- **Login**: `POST /api/login`
+- **Fetch Users**: `GET /api/users?page={page}`
+- **Edit User**: `PUT /api/users/{id}`
+- **Delete User**: `DELETE /api/users/{id}`
+
+---
+

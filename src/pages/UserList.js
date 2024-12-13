@@ -1,12 +1,13 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { toast } from 'react-toastify';
+import { toast, ToastContainer } from 'react-toastify';
 import { UserContext } from '../contexts/UserContext';
 import SearchBar from '../components/SearchBar';
 import UserCard from '../components/UserCard';
 import PaginationControls from '../components/PaginationControls';
 import EditUserModal from '../components/EditUserModal';
+import 'react-toastify/dist/ReactToastify.css';
 
 const UserList = () => {
   const { users, refreshUserList, updateUserList } = useContext(UserContext);
@@ -131,6 +132,7 @@ const UserList = () => {
           setUser={setCurrentUser}
         />
       )}
+      <ToastContainer />
     </div>
   );
 };

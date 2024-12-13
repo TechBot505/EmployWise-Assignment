@@ -118,7 +118,7 @@ frontend-assignment/
 1. Clone the repository:
 
    ```bash
-   git clone <repository-url>
+   git clone https://github.com/TechBot505/EmployWise-Assignment>
    cd frontend-assignment
    ```
 
@@ -131,7 +131,7 @@ frontend-assignment/
 3. Start the development server:
 
    ```bash
-   npm start
+   npm run start
    ```
 
 4. Access the application at:

@@ -127,6 +127,7 @@ frontend-assignment/
    ```bash
    npm install
    ```
+   **NOTE:** If `npm install` fails, run ``` npm config set legacy-peer-deps true ```, and then `npm install` again.
 
 3. Start the development server:
 
